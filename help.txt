@@ -1,0 +1,13 @@
+|--------------------------------------------------------------------------|
+                  Hello my dear comrades!
+                  Here's your list of commands!
+|--------------------------------------------------------------------------|
+   $show <member> - show credits of member
+   $addu <member> - add new member to system
+   $addc <member> <number> - add credits to member
+   $setc <member> <number> - set credits to member
+   $minusc <member> <number> - minus credits to member
+   $showleader - show our perfect leader Korea
+   $showmessiah - show our messiah John Xina
+   $showgod - show our God
+|--------------------------------------------------------------------------|
