@@ -6,6 +6,11 @@ global usersf, creditf
 usersf = 'savedusers.txt'
 creditf = 'creditusers.txt'
 
+welcome_text = ' has joined a server!'
+leave_text = ' has left a server!'
+bot_token = ''
+client = commands.Bot(command_prefix='$')
+
 
 async def readcredits():
     global usercount, creditbank, usersf, creditf
@@ -30,12 +35,6 @@ async def printcredits():
     global usercount
     for i in range(usercount):
         print(str(creditbank[0][i]) + ': ' + str(creditbank[1][i]))
-
-
-welcome_text = ' has joined a server!'
-leave_text = ' has left a server!'
-bot_token = 'OTE2MDQzOTQ4NDkxOTY0NDg2.YakaaA.zGh9Mk2ci5T47TLQ9FItgon8D6M'
-client = commands.Bot(command_prefix='$')
 
 
 @client.event
