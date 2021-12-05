@@ -1,0 +1,15 @@
+|-------------------------------------------------------------------------------------|
+                                     Hello my dear comrades!
+                                  Here's your list of commands!
+|-------------------------------------------------------------------------------------|
+   $show <member> - show credits of member
+   $addu <member> - add new member to system
+   $addc <member> <number> - add credits to member
+   $setc <member> <number> - set credits to member
+   $minusc <member> <number> - minus credits to member
+   $transferc <from member> <to member> <count> - transfer credits
+
+   ?greet - say hi to John Xina and earn credits
+
+   #deletemsg <count> - delete some number of messages in current channel
+|-------------------------------------------------------------------------------------|
