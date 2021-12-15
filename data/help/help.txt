@@ -1,15 +1,25 @@
-|-------------------------------------------------------------------------------------|
+|-------------------------------------------------------------------------------------------|
                                      Hello my dear comrades!
                                   Here's your list of commands!
-|-------------------------------------------------------------------------------------|
-   $show <member> - show credits of member
-   $addu <member> - add new member to system
-   $addc <member> <number> - add credits to member
-   $setc <member> <number> - set credits to member
-   $minusc <member> <number> - minus credits to member
-   $transferc <from member> <to member> <count> - transfer credits
+|-------------------------------------------------------------------------------------------|
+       COMMON COMMANDS
+       **#ping** - ping bot
+       **#help** - this help list
+       **#addu** - adds you to system
+       **#greet** - say hi to bot for earning credits
+       **#showme** - show your credits
+       **#show <member>** - show credits of member
+       **#transferc <to member> <count>** - transfer some credits to member
 
-   ?greet - say hi to John Xina and earn credits
+       SPECIAL COMMANDS
+       **#createroles** - create bot roles on the server (usable by anyone)
 
-   #deletemsg <count> - delete some number of messages in current channel
-|-------------------------------------------------------------------------------------|
+       ADMIN ONLY COMMANDS
+       **#addc <member> <number>** - add credits to member
+       **#setc <member> <number>** - set credits to member
+       **#minusc <member> <number>** - minus credits to member
+       **#deleteroles** - deletes bot special roles on member
+       **#showroles** - show all roles on a server
+       **#initroles <member>** - init bot roles for member
+       **#deletemsg <count>** - delete some number of messages in current channel
+|-------------------------------------------------------------------------------------------|

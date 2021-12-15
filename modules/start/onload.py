@@ -1,5 +1,5 @@
 from discord.ext import commands
-from modules.basicio import moduleio as io
+from modules.basicio import io as io
 
 
 class OnLoad(commands.Cog):
