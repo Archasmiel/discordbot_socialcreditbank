@@ -1,0 +1,5 @@
+discord
+ffmpeg
+youtube_dl
+tinydb
+pynacl
