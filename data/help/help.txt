@@ -13,6 +13,10 @@
 
        SPECIAL COMMANDS
        **#createroles** - create bot roles on the server (usable by anyone)
+       **#play <link/url>** - playing music from given url/link
+       **#pause** - pause playing bot
+       **#resume** - resume playing bot
+       **#disconnect** - kick playing bot from current voice chat
 
        ADMIN ONLY COMMANDS
        **#addc <member> <number>** - add credits to member
