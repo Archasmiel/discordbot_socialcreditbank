@@ -4,7 +4,7 @@ from modules.messaging.messagelistener import Messaging
 from modules.commands.usercommands_delete import UserCommands
 
 db = 'data/storage/data.json'
-bot_token = 'OTE2MDQzOTQ4NDkxOTY0NDg2.YakaaA.G2NIygaoobyh7WXxrEoR-6DZs44'
+bot_token = ''
 client = commands.Bot(command_prefix='$')
 
 client.add_cog(OnLoad(client, db))
