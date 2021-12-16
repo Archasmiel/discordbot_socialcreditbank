@@ -1,5 +1,17 @@
 import discord
-import youtube_dl
+import yt_dlp
+
+FFMPEG_OPTIONS = '-reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 5'
+FFMPEG_PATH = "data/ffmpeg/bin/ffmpeg.exe"
+YDL_CFG = {
+        'format': 'bestaudio',
+        'outtmpl': 'song.%(ext)s',
+        'postprocessors': [{
+            'key': 'FFmpegExtractAudio',
+            'preferredcodec': 'weba',
+            'preferredquality': '192',
+        }],
+    }
 
 
 async def join(message):
@@ -30,22 +42,13 @@ async def resume(message):
 async def play(message):
     link = message.content.split()[1]
     message.author.guild.voice_client.stop()
-    FFMPEG_OPTIONS = {'before_options': '-reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 5', 'options': '-vn'}
-    YDL_OPTIONS = {
-        'format': 'bestaudio',
-        'noplaylist': 'True',
-        'outtmpl': 'song.%(ext)s',
-        'postprocessors': [{
-            'key': 'FFmpegExtractAudio',
-            'preferredcodec': 'weba',
-            'preferredquality': '192',
-        }],
-    }
+
     vc = message.author.guild.voice_client
 
-    with youtube_dl.YoutubeDL(YDL_OPTIONS) as ydl:
+    with yt_dlp.YoutubeDL(YDL_CFG) as ydl:
         info = ydl.extract_info(link, download=False)
+
         # await message.channel.send(info['formats'][0]['url'])
-        url2 = info['formats'][0]['url']
-        # source = await discord.FFmpegOpusAudio.from_probe(url2, **FFMPEG_OPTIONS, executable='data/ffmpeg/bin/ffmpeg.exe')
-        vc.play(discord.FFmpegOpusAudio(executable=r"data/ffmpeg/bin/ffmpeg.exe", source=url2))
+        song_url = info['url']
+        source = await discord.FFmpegOpusAudio.from_probe(song_url, before_options=FFMPEG_OPTIONS, executable=FFMPEG_PATH)
+        vc.play(source)
