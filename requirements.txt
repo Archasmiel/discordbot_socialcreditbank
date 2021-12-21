@@ -1,5 +1,6 @@
-discord
+discord~=1.7.3
 ffmpeg
-youtube_dl
-tinydb
+yt_dlp
+tinydb~=4.5.2
 pynacl
+lavalink~=3.1.4

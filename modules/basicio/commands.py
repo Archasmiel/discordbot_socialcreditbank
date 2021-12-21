@@ -1,5 +1,5 @@
-import re
 import modules.basicio.roles as role_io
+import re
 
 
 async def command_check(regex, msg, roles, channel):
