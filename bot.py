@@ -5,7 +5,7 @@ from modules.commands.music_listener import Music
 
 # database location and bot token
 db = 'data/storage/data.json'
-bot_token = 'OTE2MDQzOTQ4NDkxOTY0NDg2.YakaaA.2lJFBd1Z2hLv6BoA-uwCuOAX024'
+bot_token = ''
 client = commands.Bot(command_prefix='$')
 
 # load cogs
