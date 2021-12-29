@@ -85,6 +85,17 @@ class Commands:
         if await cmd.command_check('#showroles', content, author_roles, channel):
             await msg.show_roles(message)
 
+    @staticmethod
+    async def music_commands(client, message):
+        author_id = f'<@!{message.author.id}>'
+        author = message.author
+        author_name = message.author
+        guild = message.guild
+        author_roles = [r.name for r in author.roles]
+        channel = message.channel
+        content = message.content
+
+
 
 class Messaging(commands.Cog):
 
@@ -96,3 +107,4 @@ class Messaging(commands.Cog):
     async def on_message(self, message):
         if message.content.find('#') == 0:
             await Commands.basic_commands(self.client, self.db, message)
+            await Commands.music_commands(self.client, message)
