@@ -27,6 +27,8 @@ class Music(commands.Cog):
                        f'$leave - выкинуть бота из канала\n'
                        f'$queue - список плейлиста ботика\n'
                        f'$nowplays - что сейчас играет в боте\n'
+                       f'$skip - скипнуть текущий трек\n'
+                       f'$stop - снести все треки текущего проигрывания\n'
                        )
 
     @commands.command()
@@ -68,6 +70,28 @@ class Music(commands.Cog):
         await ctx.send(f'Продолжаю проигрывание **{song.name}**.')
 
     @commands.command()
+    async def skip(self, ctx):
+        player = music.get_player(guild_id=ctx.guild.id)
+        size = self.count_queue_size(ctx)
+        if not player:
+            return await ctx.send(f'**Нету активного пригрывателя на сервере.**')
+        if size > 1:
+            song = (await player.skip())[0]
+            await ctx.send(f'Пропущен трек **{song.name}** который играл сейчас.')
+        if size == 0:
+            return await self.stop(ctx)
+        if size == 1:
+            await ctx.send(f'Пропущен трек **{player.now_playing().name}** который играл сейчас.')
+            return await self.stop(ctx)
+
+    @commands.command()
+    async def stop(self, ctx):
+        player = music.get_player(guild_id=ctx.guild.id)
+        if not player:
+            return await ctx.send(f'**Нету активного пригрывателя на сервере.**')
+        await player.stop()
+
+    @commands.command()
     async def nowplays(self, ctx):
         player = music.get_player(guild_id=ctx.guild.id)
         if not player:
@@ -78,9 +102,9 @@ class Music(commands.Cog):
     @commands.command()
     async def queue(self, ctx):
         player = music.get_player(guild_id=ctx.guild.id)
-        if not player:
+        if not player or self.count_queue_size(ctx) < 0:
             return await ctx.send(f'**Списка музыки нету, поскольку нету активного пригрывателя на сервере.**')
-        await ctx.send(''.join([f'**[ {i if i != 0 else "текущий"} ]: {song.name}**\n'
+        await ctx.send(' '.join([f'**[ {i if i != 0 else "текущий"} ]: {song.name}**\n'
                                 for i, song in enumerate(player.current_queue())]))
 
     @commands.command()
