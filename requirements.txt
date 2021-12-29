@@ -1,7 +1,8 @@
-discord~=1.7.3
+discord
 ffmpeg
 yt_dlp
-tinydb~=4.5.2
+tinydb
 pynacl
 dismusic
-DiscordUtils~=1.3.4
+DiscordUtils
+youtube_dl
